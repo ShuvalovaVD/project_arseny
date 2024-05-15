@@ -10,7 +10,7 @@ def handle_pressing_widget_button():
         widget_unactive_entry.delete(0, "end")
         widget_unactive_entry.insert(0, answer)
         widget_unactive_entry.configure(state="readonly")
-    elif widget_combobox.get() == "2. Шифр Цезаря":
+    elif widget_combobox.get() == "2. Шифр Цезаря (шаг=5)":
         answer = logic.cezar(text)
         widget_unactive_entry.configure(state="normal")
         widget_unactive_entry.delete(0, "end")
@@ -45,7 +45,7 @@ widget_entry = ctk.CTkEntry(master=root)
 widget_entry.configure(font=my_font, justify="center")
 
 # выпадающий список для выбора одного элемента - ComboBox
-elems = ["1. Шифр Атбаша", "2. Шифр Цезаря", "3. Азбука Морзе"]
+elems = ["1. Шифр Атбаша", "2. Шифр Цезаря (шаг=5)", "3. Азбука Морзе"]
 widget_combobox = ctk.CTkComboBox(master=root)
 widget_combobox.configure(font=my_font, values=elems, state="readonly")
 widget_combobox.set("1. Шифр Атбаша")
