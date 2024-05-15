@@ -42,7 +42,7 @@ widget_button.configure(text="Зашифровать", font=my_font, command=han
 
 # однострочное поле для ввода - Entry
 widget_entry = ctk.CTkEntry(master=root)
-widget_entry.configure(font=my_font)
+widget_entry.configure(font=my_font, justify="center")
 
 # выпадающий список для выбора одного элемента - ComboBox
 elems = ["1. Шифр Атбаша", "2. Шифр Цезаря", "3. Азбука Морзе"]
@@ -52,7 +52,7 @@ widget_combobox.set("1. Шифр Атбаша")
 
 # неактивное однострочное поле для ввода - Entry
 widget_unactive_entry = ctk.CTkEntry(master=root)
-widget_unactive_entry.configure(font=my_font)
+widget_unactive_entry.configure(font=my_font, justify="center")
 widget_unactive_entry.insert(0, " ")
 widget_unactive_entry.configure(
     state="readonly")
@@ -61,16 +61,16 @@ label_input.configure(text="Ввод:", font=my_font)
 label_output.configure(text="Вывод:", font=my_font)
 
 # распологаем элементы в сетке
-rows, columns = 7, 5
+rows, columns = 5, 3
 for i in range(rows):
     root.rowconfigure(index=i, weight=1)
 for i in range(columns):
     root.columnconfigure(index=i, weight=1)
-widget_label.grid(row=0, column=1, columnspan=3, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
-widget_combobox.grid(row=1, column=1, columnspan=3, sticky="ew")
-label_input.grid(row=2, column=1, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
-label_output.grid(row=2, column=3, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
-widget_entry.grid(row=3, column=1, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
-widget_unactive_entry.grid(row=3, column=3, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
-widget_button.grid(row=4, column=2, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
+widget_label.grid(row=0, column=0, columnspan=3, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
+widget_combobox.grid(row=1, column=1, sticky="ew")
+label_input.grid(row=2, column=0, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
+widget_entry.grid(row=2, column=1, columnspan=2, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
+label_output.grid(row=3, column=0, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
+widget_unactive_entry.grid(row=3, column=1, columnspan=2, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
+widget_button.grid(row=4, column=1, ipadx=4, ipady=4, padx=6, pady=6, sticky="nsew")
 root.mainloop()
